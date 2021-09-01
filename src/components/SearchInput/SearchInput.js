@@ -10,8 +10,8 @@ const SearchInput = ({ label, ...delegated }) => {
   return (
     <Label>
       <VisuallyHidden>Search</VisuallyHidden>
-      <Input {...delegated} placeholder="Search…" />
-      <SearchIcon id="search" strokeWidth={1} size={16} />
+      <Input {...delegated} placeholder='Search…' />
+      <SearchIcon id='search' strokeWidth={1} size={16} />
     </Label>
   );
 };

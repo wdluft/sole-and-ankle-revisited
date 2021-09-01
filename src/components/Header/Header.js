@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS, WEIGHTS } from '../../constants';
+import { COLORS, QUERIES, WEIGHTS } from '../../constants';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
+import UnstyledButton from '../UnstyledButton';
+import Icon from '../Icon';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -21,15 +23,26 @@ const Header = () => {
         <Side>
           <Logo />
         </Side>
-        <Nav>
-          <NavLink href="/sale">Sale</NavLink>
-          <NavLink href="/new">New&nbsp;Releases</NavLink>
-          <NavLink href="/men">Men</NavLink>
-          <NavLink href="/women">Women</NavLink>
-          <NavLink href="/kids">Kids</NavLink>
-          <NavLink href="/collections">Collections</NavLink>
-        </Nav>
+        <FullNav>
+          <NavLink href='/sale'>Sale</NavLink>
+          <NavLink href='/new'>New&nbsp;Releases</NavLink>
+          <NavLink href='/men'>Men</NavLink>
+          <NavLink href='/women'>Women</NavLink>
+          <NavLink href='/kids'>Kids</NavLink>
+          <NavLink href='/collections'>Collections</NavLink>
+        </FullNav>
         <Side />
+        <SmallNav>
+          <UnstyledButton>
+            <Icon id='shopping-bag' strokeWidth={1} />
+          </UnstyledButton>
+          <UnstyledButton>
+            <Icon id='search' strokeWidth={1} />
+          </UnstyledButton>
+          <UnstyledButton>
+            <Icon id='menu' strokeWidth={1} />
+          </UnstyledButton>
+        </SmallNav>
       </MainHeader>
 
       <MobileMenu
@@ -48,10 +61,27 @@ const MainHeader = styled.div`
   border-bottom: 1px solid ${COLORS.gray[300]};
 `;
 
-const Nav = styled.nav`
+const FullNav = styled.nav`
   display: flex;
   gap: 48px;
   margin: 0px 48px;
+
+  @media ${QUERIES.tabletAndDown} {
+    display: none;
+  }
+`;
+
+const SmallNav = styled.nav`
+  display: none;
+
+  @media ${QUERIES.tabletAndDown} {
+    display: flex;
+    gap: 40px;
+  }
+
+  @media ${QUERIES.phoneAndDown} {
+    gap: 24px;
+  }
 `;
 
 const Side = styled.div`
