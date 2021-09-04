@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS, WEIGHTS, QUERIES } from '../../constants';
+import { WEIGHTS, QUERIES } from '../../constants';
 
 const Sidebar = () => {
   return (
@@ -33,12 +33,12 @@ const Link = styled.a`
   display: block;
   text-decoration: none;
   font-weight: ${WEIGHTS.medium};
-  color: ${COLORS.gray[900]};
+  color: var(--gray900);
   line-height: 2;
 `;
 
 const ActiveLink = styled(Link)`
-  color: ${COLORS.primary};
+  color: var(--primary);
 `;
 
 export default Sidebar;
